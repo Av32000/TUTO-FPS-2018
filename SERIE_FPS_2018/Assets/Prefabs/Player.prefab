@@ -581,7 +581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon:
     name: Glock
-    damage: 10
+    damage: 40
     range: 100
   cam: {fileID: 20148905813137306}
   mask:
@@ -598,6 +598,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b06e7a8197929843b771b311f86be8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  disableOnDeath:
+  - {fileID: 114123390055947448}
+  - {fileID: 114206175738037086}
 --- !u!114 &114754604817121724
 MonoBehaviour:
   m_ObjectHideFlags: 1
