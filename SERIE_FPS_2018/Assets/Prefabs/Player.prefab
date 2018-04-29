@@ -87,8 +87,6 @@ GameObject:
   - component: {fileID: 4611322265626648}
   - component: {fileID: 199354102450846988}
   - component: {fileID: 198418278233670720}
-  - component: {fileID: 135075122739934564}
-  - component: {fileID: 114390177501208864}
   m_Layer: 0
   m_Name: Afterburner_Left
   m_TagString: Untagged
@@ -218,8 +216,6 @@ GameObject:
   - component: {fileID: 4675971515148286}
   - component: {fileID: 199896091777052988}
   - component: {fileID: 198300258746156538}
-  - component: {fileID: 135961302856473038}
-  - component: {fileID: 114683672683789452}
   m_Layer: 0
   m_Name: Afterburner_Right
   m_TagString: Untagged
@@ -367,7 +363,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1647541062301388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.65702677, y: 1, z: 6.668983}
+  m_LocalPosition: {x: 1.7368731, y: 1.215, z: -3.3129334}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4060925228072620}
@@ -540,7 +536,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294966271
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -906,7 +902,6 @@ MonoBehaviour:
   lookSensitivityX: 3
   lookSensitivityY: 3
   thrusterForce: 1300
-  jointMode: 1
   jointSpring: 12
   jointMaxForce: 25
 --- !u!114 &114125725461005558
@@ -979,21 +974,6 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 4294967039
---- !u!114 &114390177501208864
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1353663820992886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d44a238286f6904198ab78e914c229d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectAngle: 20
-  effectWidth: 2
-  effectDistance: 32
-  force: 140
 --- !u!114 &114648673163191666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1009,21 +989,6 @@ MonoBehaviour:
   disableOnDeath:
   - {fileID: 114123390055947448}
   - {fileID: 114206175738037086}
---- !u!114 &114683672683789452
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1690320403533190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d44a238286f6904198ab78e914c229d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectAngle: 20
-  effectWidth: 2
-  effectDistance: 32
-  force: 140
 --- !u!114 &114754604817121724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1043,6 +1008,10 @@ MonoBehaviour:
   - {fileID: 114206175738037086}
   - {fileID: 95196019654385010}
   remoteLayerName: RemotePlayer
+  dontDrawLayerName: DontDraw
+  playerGraphics: {fileID: 1343071176636086}
+  playerUIPrefab: {fileID: 1128251719751358, guid: 8410b8e7349a2cb4c9e0b2ff95cb85e7,
+    type: 2}
 --- !u!114 &114795145895045460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1090,18 +1059,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472443282667254}
   m_Enabled: 1
---- !u!135 &135075122739934564
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1353663820992886}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 16
-  m_Center: {x: 0, y: 0, z: 16}
 --- !u!135 &135280238588857388
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1114,18 +1071,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135961302856473038
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1690320403533190}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 16
-  m_Center: {x: 0, y: 0, z: 16}
 --- !u!153 &153671263656930760
 ConfigurableJoint:
   m_ObjectHideFlags: 1
@@ -1136,7 +1081,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -4.4114213, y: 0, z: -1.0159582}
+  m_ConnectedAnchor: {x: 1.7368731, y: 1.215, z: -3.3129334}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -1280,7 +1225,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -130390044
+  randomSeed: -1262749784
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4581,7 +4526,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 1916562699
+  randomSeed: 1086210676
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7900,7 +7845,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -2092946768
+  randomSeed: 280601367
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -11219,7 +11164,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 764880702
+  randomSeed: -408713615
   InitialModule:
     serializedVersion: 3
     enabled: 1

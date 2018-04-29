@@ -10,6 +10,16 @@ public class PlayerSetup : NetworkBehaviour {
     [SerializeField]
     private string remoteLayerName = "RemotePlayer";
 
+    [SerializeField]
+    private string dontDrawLayerName = "DontDraw";
+
+    [SerializeField]
+    private GameObject playerGraphics;
+
+    [SerializeField]
+    private GameObject playerUIPrefab;
+    private GameObject playerUIInstance;
+
     Camera sceneCamera;
 
     private void Start()
@@ -25,8 +35,25 @@ public class PlayerSetup : NetworkBehaviour {
             if (sceneCamera != null) {
                 sceneCamera.gameObject.SetActive(false);
             }
+
+            // Désactiver la partie graphique du joueur local
+            SetLayerRecursively(playerGraphics, LayerMask.NameToLayer(dontDrawLayerName));
+
+            // Création du UI
+            playerUIInstance = Instantiate(playerUIPrefab);
+            playerUIInstance.name = playerUIPrefab.name;
         }
         GetComponent<Player>().Setup();
+    }
+
+    private void SetLayerRecursively(GameObject obj, int newLayer)
+    {
+        obj.layer = newLayer;
+
+        foreach (Transform child in obj.transform)
+        {
+            SetLayerRecursively(child.gameObject, newLayer);
+        }
     }
 
     public override void OnStartClient()
@@ -45,7 +72,7 @@ public class PlayerSetup : NetworkBehaviour {
 
     private void DisableComponents()
     {
-        // boucle pour désactiver les components des autres joueurs sur notre instance
+        // boucle pour désactiver les components des autres joueurs sur notre instance 
         for (int i = 0; i < componentsToDisable.Length; i++)
         {
             componentsToDisable[i].enabled = false;
@@ -54,6 +81,8 @@ public class PlayerSetup : NetworkBehaviour {
 
     private void OnDisable()
     {
+        Destroy(playerUIInstance);
+
         if(sceneCamera != null)
         {
             sceneCamera.gameObject.SetActive(true);
