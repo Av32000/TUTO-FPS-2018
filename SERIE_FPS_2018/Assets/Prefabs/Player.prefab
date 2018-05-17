@@ -28,23 +28,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1041595877420536
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4395866999689706}
-  - component: {fileID: 33832739527941254}
-  - component: {fileID: 23319523195844302}
-  m_Layer: 0
-  m_Name: Sci-Fi Automatic
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1343071176636086
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +131,7 @@ GameObject:
   - component: {fileID: 114648673163191666}
   - component: {fileID: 95196019654385010}
   - component: {fileID: 114795145895045460}
+  - component: {fileID: 114281479177691906}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -333,7 +317,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1647541062301388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.896999, y: 0, z: 0.9009199}
+  m_LocalPosition: {x: 9.550638, y: 1, z: -1.5730622}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4060925228072620}
@@ -368,19 +352,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4764243134503274}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4395866999689706
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1041595877420536}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4740641468492160}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4489091158881018
 Transform:
@@ -432,8 +403,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.36600018, y: -0.238, z: 0.865}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4395866999689706}
+  m_Children: []
   m_Father: {fileID: 4024022980653364}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -620,42 +590,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!23 &23319523195844302
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1041595877420536}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: d9aa7d70d8c9ded4c97a7c9b9fe90900, type: 2}
-  - {fileID: 2100000, guid: 8b74f2dcfe8133c44b67444a08d9eca8, type: 2}
-  - {fileID: 2100000, guid: 6614106d1e91d414ebd898f561ffaf26, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!23 &23737497694957618
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -738,13 +672,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1580605145005422}
   m_Mesh: {fileID: 4300002, guid: a8c883b1f1321a94798a5d6e2f2596ac, type: 3}
---- !u!33 &33832739527941254
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1041595877420536}
-  m_Mesh: {fileID: 4300000, guid: 41312909d6667e64ab25c0cf15964249, type: 3}
 --- !u!33 &33843668640523124
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -890,16 +817,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741dd41271a2f21488701e23597c326a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon:
-    name: Sci-Fi Automatic
-    damage: 40
-    range: 100
-  weaponGFX: {fileID: 1041595877420536}
-  weaponLayerName: Weapon
   cam: {fileID: 20148905813137306}
   mask:
     serializedVersion: 2
     m_Bits: 4294967039
+--- !u!114 &114281479177691906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1647541062301388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9aaa95807e0d20479e4e18ccabe0934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponLayerName: Weapon
+  weaponHolder: {fileID: 4740641468492160}
+  primaryWeapon:
+    name: Blaster
+    damage: 5
+    range: 100
+    fireRate: 10
+    graphics: {fileID: 1496857424072410, guid: cd553a591d26aa24aa3d5ab2cab98e0b, type: 2}
 --- !u!114 &114648673163191666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -931,7 +871,6 @@ MonoBehaviour:
   - {fileID: 114123390055947448}
   - {fileID: 20148905813137306}
   - {fileID: 81266678061852446}
-  - {fileID: 114206175738037086}
   - {fileID: 95196019654385010}
   - {fileID: 20015025046269956}
   remoteLayerName: RemotePlayer
@@ -1008,7 +947,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 11.896999, y: 0, z: 0.9009199}
+  m_ConnectedAnchor: {x: 10.451133, y: 1.076, z: 0.9391928}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
