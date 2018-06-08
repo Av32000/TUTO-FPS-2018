@@ -33,18 +33,44 @@ public class Player : NetworkBehaviour {
     [SerializeField]
     private GameObject spawnEffect;
 
-    public void Setup()
+    private bool firstSetup = true;
+
+    public void SetupPlayer()
     {
-        wasEnabled = new bool[disableOnDeath.Length];
-        for (int i = 0; i < disableOnDeath.Length; i++)
+        if (isLocalPlayer)
         {
-            wasEnabled[i] = disableOnDeath[i].enabled;
+            // Changement de caméra
+            GameManager.instance.SetSceneCameraActive(false);
+            GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
+        }
+
+        CmdBroadcastNewPlayerSetup();        
+    }
+
+    [Command]
+    private void CmdBroadcastNewPlayerSetup()
+    {
+        RpcSetupPlayerOnAllClients();
+    }
+
+    [ClientRpc]
+    private void RpcSetupPlayerOnAllClients()
+    {
+        if (firstSetup)
+        {
+            wasEnabled = new bool[disableOnDeath.Length];
+            for (int i = 0; i < disableOnDeath.Length; i++)
+            {
+                wasEnabled[i] = disableOnDeath[i].enabled;
+            }
+
+            firstSetup = false;
         }
 
         SetDefaults();
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (!isLocalPlayer)
         {
@@ -55,7 +81,7 @@ public class Player : NetworkBehaviour {
         {
             RpcTakeDamage(9999);
         }
-    }
+    }*/
 
     [ClientRpc]
     public void RpcTakeDamage(int _amount)
@@ -116,11 +142,12 @@ public class Player : NetworkBehaviour {
     private IEnumerator Respawn()
     {
         yield return new WaitForSeconds(GameManager.instance.matchSettings.respawnTime);
+
         Transform _spawnPoint = NetworkManager.singleton.GetStartPosition();
         transform.position = _spawnPoint.position;
         transform.rotation = _spawnPoint.rotation;
-
-        SetDefaults();
+        yield return new WaitForSeconds(0.1f);
+        SetupPlayer();
 
         Debug.Log(transform.name + " a respawn.");
     }
@@ -147,13 +174,6 @@ public class Player : NetworkBehaviour {
         if(_col != null)
         {
             _col.enabled = true;
-        }
-
-        // Changement de caméra
-        if (isLocalPlayer)
-        {
-            GameManager.instance.SetSceneCameraActive(false);
-            GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
         }
 
         // Apparition des particules de spawn
