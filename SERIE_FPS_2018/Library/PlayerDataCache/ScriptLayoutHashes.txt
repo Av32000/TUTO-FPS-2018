@@ -1,5 +1,6 @@
 WindowsStandalone
 SceneListBegin?
+Assets/Lobby.unity
 Assets/MainLevel01.unity
 SceneListEnd?
 7ba1e84ad3d2d8813486668e75f842ce Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.ExtinguishableParticleSystem
