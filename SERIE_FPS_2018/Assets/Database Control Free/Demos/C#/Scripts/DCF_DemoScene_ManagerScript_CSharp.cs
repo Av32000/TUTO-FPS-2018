@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 using DatabaseControl; // << Remember to add this reference to your scripts which use DatabaseControl
 
-public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
+public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour
+{
 
     //All public variables bellow are assigned in the Inspector
 
@@ -40,7 +41,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
     }
 
     //Called by Button Pressed Methods to Reset UI Fields
-    void ResetAllUIElements ()
+    void ResetAllUIElements()
     {
         //This resets all of the UI elements. It clears all the strings in the input fields and any errors being displayed
         Login_UsernameField.text = "";
@@ -56,7 +57,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
     }
 
     //Called by Button Pressed Methods. These use DatabaseControl namespace to communicate with server.
-    IEnumerator LoginUser ()
+    IEnumerator LoginUser()
     {
         IEnumerator e = DCF.Login(playerUsername, playerPassword); // << Send request to login, providing username and password
         while (e.MoveNext())
@@ -72,7 +73,8 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             loadingParent.gameObject.SetActive(false);
             loggedInParent.gameObject.SetActive(true);
             LoggedIn_DisplayUsernameText.text = "Logged In As: " + playerUsername;
-        } else
+        }
+        else
         {
             //Something went wrong logging in. Stop showing 'Loading...' and go back to LoginUI
             loadingParent.gameObject.SetActive(false);
@@ -81,13 +83,15 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             {
                 //The Username was wrong so display relevent error message
                 Login_ErrorText.text = "Error: Username not Found";
-            } else
+            }
+            else
             {
                 if (response == "PassError")
                 {
                     //The Password was wrong so display relevent error message
                     Login_ErrorText.text = "Error: Password Incorrect";
-                } else
+                }
+                else
                 {
                     //There was another error. This error message should never appear, but is here just in case.
                     Login_ErrorText.text = "Error: Unknown Error. Please try again later.";
@@ -111,7 +115,8 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             loadingParent.gameObject.SetActive(false);
             loggedInParent.gameObject.SetActive(true);
             LoggedIn_DisplayUsernameText.text = "Logged In As: " + playerUsername;
-        } else
+        }
+        else
         {
             //Something went wrong logging in. Stop showing 'Loading...' and go back to RegisterUI
             loadingParent.gameObject.SetActive(false);
@@ -120,14 +125,15 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             {
                 //The username has already been taken. Player needs to choose another. Shows error message.
                 Register_ErrorText.text = "Error: Username Already Taken";
-            } else
+            }
+            else
             {
                 //There was another error. This error message should never appear, but is here just in case.
                 Login_ErrorText.text = "Error: Unknown Error. Please try again later.";
             }
         }
     }
-    IEnumerator GetData ()
+    IEnumerator GetData()
     {
         IEnumerator e = DCF.GetUserData(playerUsername, playerPassword); // << Send request to get the player's data string. Provides the username and password
         while (e.MoveNext())
@@ -154,7 +160,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             LoggedIn_DataOutputField.text = response;
         }
     }
-    IEnumerator SetData (string data)
+    IEnumerator SetData(string data)
     {
         IEnumerator e = DCF.SetUserData(playerUsername, playerPassword, data); // << Send request to set the player's data string. Provides the username, password and new data string
         while (e.MoveNext())
@@ -182,7 +188,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
     }
 
     //UI Button Pressed Methods
-    public void Login_LoginButtonPressed ()
+    public void Login_LoginButtonPressed()
     {
         //Called when player presses button to Login
 
@@ -205,20 +211,21 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
                 //Password too short so it must be wrong
                 Login_ErrorText.text = "Error: Password Incorrect";
             }
-        } else
+        }
+        else
         {
             //Username too short so it must be wrong
             Login_ErrorText.text = "Error: Username Incorrect";
         }
     }
-    public void Login_RegisterButtonPressed ()
+    public void Login_RegisterButtonPressed()
     {
         //Called when the player hits register on the Login UI, so switches to the Register UI
         ResetAllUIElements();
         loginParent.gameObject.SetActive(false);
         registerParent.gameObject.SetActive(true);
     }
-    public void Register_RegisterButtonPressed ()
+    public void Register_RegisterButtonPressed()
     {
         //Called when the player presses the button to register
 
@@ -258,28 +265,28 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             Register_ErrorText.text = "Error: Username too Short";
         }
     }
-    public void Register_BackButtonPressed ()
+    public void Register_BackButtonPressed()
     {
         //Called when the player presses the 'Back' button on the register UI. Switches back to the Login UI
         ResetAllUIElements();
         loginParent.gameObject.SetActive(true);
         registerParent.gameObject.SetActive(false);
     }
-    public void LoggedIn_SaveDataButtonPressed ()
+    public void LoggedIn_SaveDataButtonPressed()
     {
         //Called when the player hits 'Set Data' to change the data string on their account. Switches UI to 'Loading...' and starts coroutine to set the players data string on the server
         loadingParent.gameObject.SetActive(true);
         loggedInParent.gameObject.SetActive(false);
         StartCoroutine(SetData(LoggedIn_DataInputField.text));
     }
-    public void LoggedIn_LoadDataButtonPressed ()
+    public void LoggedIn_LoadDataButtonPressed()
     {
         //Called when the player hits 'Get Data' to retrieve the data string on their account. Switches UI to 'Loading...' and starts coroutine to get the players data string from the server
         loadingParent.gameObject.SetActive(true);
         loggedInParent.gameObject.SetActive(false);
         StartCoroutine(GetData());
     }
-    public void LoggedIn_LogoutButtonPressed ()
+    public void LoggedIn_LogoutButtonPressed()
     {
         //Called when the player hits the 'Logout' button. Switches back to Login UI and forgets the player's username and password.
         //Note: Database Control doesn't use sessions, so no request to the server is needed here to end a session.
