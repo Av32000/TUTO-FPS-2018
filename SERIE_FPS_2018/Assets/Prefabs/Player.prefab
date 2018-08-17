@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 95196019654385010}
   - component: {fileID: 114795145895045460}
   - component: {fileID: 114281479177691906}
+  - component: {fileID: 114742100461997530}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -857,6 +858,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  kills: 0
+  deaths: 0
   disableOnDeath:
   - {fileID: 114123390055947448}
   - {fileID: 114206175738037086}
@@ -867,6 +870,17 @@ MonoBehaviour:
     type: 2}
   spawnEffect: {fileID: 1685406253362538, guid: 82870204280f539498767576ed5ac16d,
     type: 2}
+--- !u!114 &114742100461997530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1647541062301388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20fc35786b484d543910fd6b13d70cb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114754604817121724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -885,6 +899,7 @@ MonoBehaviour:
   - {fileID: 81266678061852446}
   - {fileID: 95196019654385010}
   - {fileID: 20015025046269956}
+  - {fileID: 114742100461997530}
   remoteLayerName: RemotePlayer
   dontDrawLayerName: DontDraw
   playerGraphics: {fileID: 1343071176636086}

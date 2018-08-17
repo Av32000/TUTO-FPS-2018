@@ -233,7 +233,7 @@ public class LoginMenu : MonoBehaviour
                             {
 
                                 //ready to send request
-                                StartCoroutine(sendRegisterRequest(input_register_username.text, input_register_password.text, "Hello World!")); //calls function to send register request
+                                StartCoroutine(sendRegisterRequest(input_register_username.text, input_register_password.text, "[KILLS]0/[DEATHS]0")); //calls function to send register request
                                 part = 3; //show 'loading...'
                             }
 
@@ -288,9 +288,10 @@ public class LoginMenu : MonoBehaviour
             {
                 yield return ee.Current;
             }
-            WWW returnedd = ee.Current as WWW;
-
-            if (returnedd.text == "Success")
+            //WWW returnedd = ee.Current as WWW;
+            string response = ee.Current as string;
+            Debug.Log(response);
+            if (response == "Success")
             {
                 //Account created successfully
 
@@ -302,19 +303,19 @@ public class LoginMenu : MonoBehaviour
 
                 UserAccountManager.instance.LogIn(username, password);
             }
-            if (returnedd.text == "usernameInUse")
+            if (response == "usernameInUse")
             {
                 //Account Not Created due to username being used on another Account
                 part = 1;
                 register_error.text = "Username Unavailable. Try another.";
             }
-            if (returnedd.text == "ContainsUnsupportedSymbol")
+            if (response == "ContainsUnsupportedSymbol")
             {
                 //Account Not Created as one of the parameters contained a - symbol
                 part = 1;
                 register_error.text = "Unsupported Symbol '-'";
             }
-            if (returnedd.text == "Error")
+            if (response == "Error")
             {
                 //Account Not Created, another error occurred
                 part = 1;
