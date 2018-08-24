@@ -134,6 +134,7 @@ ce6c40fa120171429322d4c3f193a0c5 Assembly-CSharp.dll:.LoginMenu
 71b11377d0e0d55150b11347f98334aa Assembly-CSharp.dll:.GameManager
 e97ff9540a49b92b779792c195839d33 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.AfterburnerPhysicsForce
 64aa47a4396d5849519c0533b069b4b9 Assembly-CSharp.dll:.WeaponManager
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlayerScore
 c04ca59b5d5d7185da854fef0860b83b Assembly-CSharp.dll:.PlayerController
 22c12b62374aaa32878546477011f8f3 Assembly-CSharp.dll:.Player
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.FireLight
@@ -169,4 +170,3 @@ ab232dc3d94359ca42eabb9c72cbbb82 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 c9576c6a51e2e71bc5caab85a96801e8 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.SmokeParticles
 1495e4581e89e6c914616aac5772e486 Assembly-CSharp.dll:.HostGame
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlayerScore
