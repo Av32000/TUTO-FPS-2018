@@ -126,7 +126,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
-a22eac811172241761fed66c03b9e104 Assembly-CSharp.dll:.PlayerUI
+d953cb52b7604d5e7dc1af81379473bd Assembly-CSharp.dll:.PlayerUI
 ce6c40fa120171429322d4c3f193a0c5 Assembly-CSharp.dll:.LoginMenu
 5c60235dca46c0d1d1ce01f2af356452 Assembly-CSharp.dll:.UserAccount_Lobby
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
@@ -136,7 +136,7 @@ e97ff9540a49b92b779792c195839d33 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 64aa47a4396d5849519c0533b069b4b9 Assembly-CSharp.dll:.WeaponManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlayerScore
 c04ca59b5d5d7185da854fef0860b83b Assembly-CSharp.dll:.PlayerController
-22c12b62374aaa32878546477011f8f3 Assembly-CSharp.dll:.Player
+159ad14efd80b004b2410b2d1969a8a2 Assembly-CSharp.dll:.Player
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.FireLight
 869e5abc2271c3b618904edff22e38ef Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.ExplosionFireAndDebris
 7ebdc70bc0f6bdf5d5088dfa00250254 Assembly-CSharp.dll:.RoomListItem
@@ -170,3 +170,5 @@ ab232dc3d94359ca42eabb9c72cbbb82 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 c9576c6a51e2e71bc5caab85a96801e8 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.SmokeParticles
 1495e4581e89e6c914616aac5772e486 Assembly-CSharp.dll:.HostGame
+6602d0e41b41c7fa1c751201dbf40499 Assembly-CSharp.dll:.Scoreboard
+c04fb9e613ebb55d80a859e606071290 Assembly-CSharp.dll:.PlayerScoreboardItem

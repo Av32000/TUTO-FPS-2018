@@ -7,6 +7,9 @@ public class PlayerScore : MonoBehaviour {
 
     private Player player;
 
+    int lastKills = 0;
+    int lastDeaths = 0;
+
 	void Start () {
         player = GetComponent<Player>();
         StartCoroutine(SyncScoreLoop());
@@ -40,21 +43,24 @@ public class PlayerScore : MonoBehaviour {
 
     void OnDataReceived(string data)
     {
-        if (player.kills == 0 && player.deaths == 0)
+        if(player.kills <= lastKills && player.deaths <= lastDeaths)
         {
             return;
         }
 
+        int killsSinceLast = player.kills - lastKills;
+        int deathsSinceLast = player.deaths - lastDeaths;
+
         int kills = DataTranslator.DataToKills(data);
         int deaths = DataTranslator.DataToDeaths(data);
 
-        int newKills = player.kills + kills;
-        int newDeaths = player.deaths + deaths;
+        int newKills = killsSinceLast + kills;
+        int newDeaths = deathsSinceLast + deaths;
 
         string newData = DataTranslator.ValuesToData(newKills, newDeaths);
 
-        player.kills = 0;
-        player.deaths = 0;
+        lastKills = player.kills;
+        lastDeaths = player.deaths;
 
         Debug.Log("Syncing : " + newData);
 
