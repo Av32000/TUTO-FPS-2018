@@ -25,12 +25,21 @@ public class PlayerShoot : NetworkBehaviour {
 
     private void Update()
     {
-        if(PauseMenu.isOn == true)
+        currentWeapon = weaponManager.GetCurrentWeapon();
+
+        if (PauseMenu.isOn == true)
         {
             return;
         }
 
-        currentWeapon = weaponManager.GetCurrentWeapon();
+        if (currentWeapon.bullets < currentWeapon.maxBullets)
+        {
+            if (Input.GetButtonDown("Reload"))
+            {
+                weaponManager.Reload();
+                return;
+            }
+        }
 
         if (currentWeapon.fireRate <= 0f)
         {
@@ -81,10 +90,20 @@ public class PlayerShoot : NetworkBehaviour {
     [Client]
     private void Shoot()
     {
-        if (!isLocalPlayer)
+        if (!isLocalPlayer && weaponManager.isReloading)
         {
             return;
         }
+
+        if(currentWeapon.bullets <= 0)
+        {
+            weaponManager.Reload();
+            return;
+        }
+
+        currentWeapon.bullets--;
+
+        Debug.Log("Bullets remaining: " + currentWeapon.bullets);
 
         // Fonction appelée lors d'un tir (du joueur local)
         CmdOnShoot();
