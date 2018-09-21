@@ -90,7 +90,7 @@ public class PlayerShoot : NetworkBehaviour {
     [Client]
     private void Shoot()
     {
-        if (!isLocalPlayer && weaponManager.isReloading)
+        if (!isLocalPlayer || weaponManager.isReloading)
         {
             return;
         }
@@ -117,6 +117,11 @@ public class PlayerShoot : NetworkBehaviour {
             }
 
             CmdOnHit(_hit.point, _hit.normal);
+        }
+
+        if(currentWeapon.bullets <= 0)
+        {
+            weaponManager.Reload();
         }
     }
 
