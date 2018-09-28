@@ -174,3 +174,5 @@ ab232dc3d94359ca42eabb9c72cbbb82 Assembly-CSharp-firstpass.dll:UnityStandardAsse
 c9576c6a51e2e71bc5caab85a96801e8 Assembly-CSharp-firstpass.dll:UnityStandardAssets.Effects.SmokeParticles
 c04fb9e613ebb55d80a859e606071290 Assembly-CSharp.dll:.PlayerScoreboardItem
 1495e4581e89e6c914616aac5772e486 Assembly-CSharp.dll:.HostGame
+281e5422d664f8dacc5d3126ed43de75 Assembly-CSharp.dll:.PlayerNameplate
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CameraFacingBillboard
